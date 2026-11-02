@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Kopi Nusantara — Kedai kopi premium Indonesia dengan biji pilihan petani lokal, diracik oleh barista profesional.">
+    <title>Kopi Nusantara — Kedai Kopi Premium Indonesia</title>
+
+    <link rel="icon" type="image/x-icon" href="../public/coffee-cup-svgrepo-com.svg">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=bakery_dining,fastfood,coffee,water_medium,lunch_dining,cookie,psychiatry,person_apron,bolt,trophy,aq_indoor,partner_heart,app_registration,share_location,sell,paid,star,menu" />
+
+    <!-- App CSS (Exact Compiled CSS from Laravel) -->
+    <link rel="stylesheet" href="css/app.css">
+    <style>
+        /* Inline overrides (from partials/styles.blade.php) */
+        .bg-customer {
+            background-color: #FDF6ED;
+        }
+
+        .text-coffee {
+            color: #6B3A2A !important;
+        }
+
+        .text-accent {
+            color: #C08B5C !important;
+        }
+
+        /* Page title bar */
+        .page-header {
+            padding: 1rem 0 1.25rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #DEC9AA;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: #3E1F0D;
+            margin: 0;
+        }
+
+        /* Floating Preview Quick Navigator */
+        .floating-preview-nav {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            background: rgba(44, 24, 16, 0.95);
+            backdrop-filter: blur(8px);
+            border: 1px solid #D4A855;
+            border-radius: 50px;
+            padding: 6px 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .floating-preview-nav .nav-label {
+            color: #D4A855;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-right: 4px;
+            border-right: 1px solid rgba(222, 201, 170, 0.3);
+        }
+
+        .floating-preview-nav a {
+            color: #FDF6ED;
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        .floating-preview-nav a:hover {
+            background: rgba(212, 168, 85, 0.2);
+            color: #D4A855;
+        }
+
+        .floating-preview-nav a.active {
+            background: #D4A855;
+            color: #2C1810;
+        }
+    </style>
+</head>
+
+<body class="bg-customer">
+
+    <!-- Floating Preview Quick Switcher -->
+    <div class="floating-preview-nav">
+        <span class="nav-label"><i class="bi bi-eye-fill me-1"></i>Preview</span>
+        <a href="index.html" class="active">Home</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Regist</a>
+        <a href="user.html">User Page</a>
+    </div>
+
+    <!-- ================================================================
+     NAVBAR (partials/navbar.blade.php - Guest View)
+     ================================================================ -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="index.html">
+                <img src="../public/coffee-cup-svgrepo-com.svg" alt="" width="28" height="28" class="brand-logo"> Kopi
+                Nusantara
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="material-symbols-outlined">
+                    menu
+                </span>
+            </button>
+
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">
+                            <i class="bi bi-house-door me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu-section">
+                            <i class="bi bi-cup-hot me-1"></i>Menu
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav align-items-start gap-1 ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Masuk</a>
+                    </li>
+                    <li class="nav-item ms-1">
+                        <a class="btn btn-gold btn-sm px-3" href="register.html">Daftar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Container Layout -->
+    <div class="container-fluid px-0">
+        <div class="row g-0">
+            <main class="col-12 overflow-hidden" style="min-width: 0;">
+
+                <!-- ================================================================
+                 HERO SECTION (home.blade.php)
+                 ================================================================ -->
+                <section class="hero-section py-5 px-5 fade-in" style="background:
+                    linear-gradient(90deg,
+                        rgba(0,0,0,0.90) 0%,
+                        rgba(0,0,0,0.70) 50%,
+                        rgba(0,0,0,0.40) 100%),
+                    url('../public/images/hero-bg.jpg') center / cover no-repeat;">
+                    <div class="row align-items-center g-5" style="min-height:82vh;">
+                        <div class="col-lg-6 order-2 order-lg-1">
+                            <div class="hero-badge fade-in-up">
+                                Biji Kopi Pilihan Nusantara
+                            </div>
+
+                            <h1 class="hero-title fade-in-up delay-1">
+                                Nikmati Kopi<br>
+                                <span class="accent">Terbaik</span><br>
+                                Indonesia
+                            </h1>
+
+                            <p class="hero-subtitle fade-in-up delay-2" style="text-align: justify;">
+                                Dari pegunungan Flores, Toraja, hingga Aceh — setiap tegukan menceritakan
+                                kisah petani kopi dan tradisi penyeduhan yang telah turun-temurun.
+                                Hadir dalam suasana hangat yang memanjakan.
+                            </p>
+
+                            <div class="d-flex flex-wrap gap-3 mb-4 fade-in-up delay-3">
+                                <a href="#menu-section" class="btn btn-coffee btn-lg px-4">
+                                    <i class="bi bi-cup-hot me-2"></i>Lihat Menu
+                                </a>
+                                <a href="register.html" class="btn btn-outline-coffee btn-lg px-4"
+                                    style="color:#ffffff; border:2px solid #ffffff;">
+                                    Daftar Gratis
+                                </a>
+                            </div>
+
+                            {{-- Stats --}}
+                            <div class="d-flex gap-4 pt-3 fade-in-up delay-4" style="border-top:1px solid #DEC9AA;">
+                                <div>
+                                    <div
+                                        style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:800;color:#ffffff;">
+                                        50+</div>
+                                    <div style="font-size:0.8rem;color:#cccccc;font-weight:500;">Varian Menu</div>
+                                </div>
+                                <div style="width:1px;background:#DEC9AA;"></div>
+                                <div>
+                                    <div
+                                        style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:800;color:#ffffff;">
+                                        1.2K+</div>
+                                    <div style="font-size:0.8rem;color:#cccccc;font-weight:500;">Pelanggan Puas</div>
+                                </div>
+                                <div style="width:1px;background:#DEC9AA;"></div>
+                                <div>
+                                    <div
+                                        style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:800;color:#ffffff;">
+                                        <span class="material-symbols-outlined">
+                                            star
+                                        </span>
+                                        4.9
+                                    </div>
+                                    <div style="font-size:0.8rem;color:#cccccc;font-weight:500;">Rating Rata-rata</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================================================================
+                 CATEGORIES SECTION (home.blade.php)
+                 ================================================================ -->
+                <section class="categories-section py-5 mb-2">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">Kategori Menu</h2>
+                        <p class="text-muted-custom mt-3">Temukan minuman dan camilan favoritmu</p>
+                    </div>
+
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                            <a href="user.html" class="card category-card text-decoration-none d-block"
+                                style="background-color:#F5E8D4;">
+                                <span class="category-icon">
+                                    <span class="material-symbols-outlined">coffee</span>
+                                </span>
+                                <h6 class="card-title mb-1" style="font-size:0.95rem;">Coffee</h6>
+                                <p class="mb-0" style="font-size:0.75rem;color:#6B4C3B;">
+                                    Minuman olahan biji kopi pilihan nusantara
+                                </p>
+                            </a>
+                        </div>
+
+                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                            <a href="user.html" class="card category-card text-decoration-none d-block"
+                                style="background-color:#F5E8D4;">
+                                <span class="category-icon">
+                                    <span class="material-symbols-outlined">water_medium</span>
+                                </span>
+                                <h6 class="card-title mb-1" style="font-size:0.95rem;">Non-Coffee</h6>
+                                <p class="mb-0" style="font-size:0.75rem;color:#6B4C3B;">
+                                    Segarnya minuman non-kopi pilihan
+                                </p>
+                            </a>
+                        </div>
+
+                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                            <a href="user.html" class="card category-card text-decoration-none d-block"
+                                style="background-color:#F5E8D4;">
+                                <span class="category-icon">
+                                    <span class="material-symbols-outlined">bakery_dining</span>
+                                </span>
+                                <h6 class="card-title mb-1" style="font-size:0.95rem;">Pastry</h6>
+                                <p class="mb-0" style="font-size:0.75rem;color:#6B4C3B;">
+                                    Kue dan roti renyah hangat
+                                </p>
+                            </a>
+                        </div>
+
+                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                            <a href="user.html" class="card category-card text-decoration-none d-block"
+                                style="background-color:#F5E8D4;">
+                                <span class="category-icon">
+                                    <span class="material-symbols-outlined">lunch_dining</span>
+                                </span>
+                                <h6 class="card-title mb-1" style="font-size:0.95rem;">Snacks</h6>
+                                <p class="mb-0" style="font-size:0.75rem;color:#6B4C3B;">
+                                    Camilan gurih lezat pelengkap harimu
+                                </p>
+                            </a>
+                        </div>
+
+                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                            <a href="user.html" class="card category-card text-decoration-none d-block"
+                                style="background-color:#F5E8D4;">
+                                <span class="category-icon">
+                                    <span class="material-symbols-outlined">cookie</span>
+                                </span>
+                                <h6 class="card-title mb-1" style="font-size:0.95rem;">Cookies</h6>
+                                <p class="mb-0" style="font-size:0.75rem;color:#6B4C3B;">
+                                    Kue kering lembut manis lumer di mulut
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================================================================
+                 FEATURED MENUS SECTION (home.blade.php)
+                 ================================================================ -->
+                <section id="menu-section" class="menus-section py-5">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">Menu Populer</h2>
+                        <p class="text-muted-custom mt-3">Pilihan terfavorit pelanggan setia Kopi Nusantara</p>
+                    </div>
+
+                    <div class="row g-4 px-4 px-lg-5">
+                        <!-- Menu 1 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card menu-card h-100">
+                                <div style="overflow:hidden;border-radius:0.75rem 0.75rem 0 0;position:relative;">
+                                    <img src="../public/images/Americano.jpg" alt="Americano" class="card-img-top">
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <span class="badge mb-2"
+                                                style="background:rgba(192,139,92,0.15);color:#6B3A2A;border:1px solid rgba(192,139,92,0.3);">
+                                                Coffee
+                                            </span>
+                                            <h5 class="card-title mb-0">Americano</h5>
+                                        </div>
+                                        <div class="menu-price text-end ms-2">
+                                            Rp 25.000
+                                        </div>
+                                    </div>
+                                    <p class="card-text flex-grow-1">Espresso ganda dipadu dengan air panas pilihan,
+                                        menyajikan rasa tegas dan berkarakter.</p>
+                                    <div class="mt-auto pt-2">
+                                        <a href="login.html" class="btn btn-coffee w-100">
+                                            <i class="bi bi-bag-plus me-2"></i>Pesan Sekarang
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Menu 2 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card menu-card h-100">
+                                <div style="overflow:hidden;border-radius:0.75rem 0.75rem 0 0;position:relative;">
+                                    <img src="../public/images/Cafe Latte.jpg" alt="Cafe Latte" class="card-img-top">
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <span class="badge mb-2"
+                                                style="background:rgba(192,139,92,0.15);color:#6B3A2A;border:1px solid rgba(192,139,92,0.3);">
+                                                Coffee
+                                            </span>
+                                            <h5 class="card-title mb-0">Cafe Latte</h5>
+                                        </div>
+                                        <div class="menu-price text-end ms-2">
+                                            Rp 28.000
+                                        </div>
+                                    </div>
+                                    <p class="card-text flex-grow-1">Kombinasi sempurna espresso pekat dan steamed milk
+                                        lembut berlapis busa halus.</p>
+                                    <div class="mt-auto pt-2">
+                                        <a href="login.html" class="btn btn-coffee w-100">
+                                            <i class="bi bi-bag-plus me-2"></i>Pesan Sekarang
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Menu 3 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card menu-card h-100">
+                                <div style="overflow:hidden;border-radius:0.75rem 0.75rem 0 0;position:relative;">
+                                    <img src="../public/images/Butter Croissant.jpg" alt="Butter Croissant"
+                                        class="card-img-top">
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <span class="badge mb-2"
+                                                style="background:rgba(192,139,92,0.15);color:#6B3A2A;border:1px solid rgba(192,139,92,0.3);">
+                                                Pastry
+                                            </span>
+                                            <h5 class="card-title mb-0">Butter Croissant</h5>
+                                        </div>
+                                        <div class="menu-price text-end ms-2">
+                                            Rp 24.000
+                                        </div>
+                                    </div>
+                                    <p class="card-text flex-grow-1">Pastry klasik berlapis renyah keemasan dengan
+                                        mentega murni yang wangi dan lembut.</p>
+                                    <div class="mt-auto pt-2">
+                                        <a href="login.html" class="btn btn-coffee w-100">
+                                            <i class="bi bi-bag-plus me-2"></i>Pesan Sekarang
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Menu 4 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card menu-card h-100">
+                                <div style="overflow:hidden;border-radius:0.75rem 0.75rem 0 0;position:relative;">
+                                    <img src="../public/images/Matcha Latte.jpg" alt="Matcha Latte"
+                                        class="card-img-top">
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <span class="badge mb-2"
+                                                style="background:rgba(192,139,92,0.15);color:#6B3A2A;border:1px solid rgba(192,139,92,0.3);">
+                                                Non-Coffee
+                                            </span>
+                                            <h5 class="card-title mb-0">Matcha Latte</h5>
+                                        </div>
+                                        <div class="menu-price text-end ms-2">
+                                            Rp 30.000
+                                        </div>
+                                    </div>
+                                    <p class="card-text flex-grow-1">Bubuk matcha autentik dipadu dengan susu segar
+                                        manis gurih, menyegarkan hari Anda.</p>
+                                    <div class="mt-auto pt-2">
+                                        <a href="login.html" class="btn btn-coffee w-100">
+                                            <i class="bi bi-bag-plus me-2"></i>Pesan Sekarang
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Menu 5 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card menu-card h-100">
+                                <div style="overflow:hidden;border-radius:0.75rem 0.75rem 0 0;position:relative;">
+                                    <img src="../public/images/Red Velvet Cookies.jpg" alt="Red Velvet Cookies"
+                                        class="card-img-top">
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <span class="badge mb-2"
+                                                style="background:rgba(192,139,92,0.15);color:#6B3A2A;border:1px solid rgba(192,139,92,0.3);">
+                                                Cookies
+                                            </span>
+                                            <h5 class="card-title mb-0">Red Velvet Cookies</h5>
+                                        </div>
+                                        <div class="menu-price text-end ms-2">
+                                            Rp 18.000
+                                        </div>
+                                    </div>
+                                    <p class="card-text flex-grow-1">Kue red velvet lembut dengan lelehan cream cheese
+                                        lezat di bagian tengahnya.</p>
+                                    <div class="mt-auto pt-2">
+                                        <a href="login.html" class="btn btn-coffee w-100">
+                                            <i class="bi bi-bag-plus me-2"></i>Pesan Sekarang
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Menu 6 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card menu-card h-100">
+                                <div style="overflow:hidden;border-radius:0.75rem 0.75rem 0 0;position:relative;">
+                                    <img src="../public/images/Loaded Fries.jpg" alt="Loaded Fries"
+                                        class="card-img-top">
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <span class="badge mb-2"
+                                                style="background:rgba(192,139,92,0.15);color:#6B3A2A;border:1px solid rgba(192,139,92,0.3);">
+                                                Snacks
+                                            </span>
+                                            <h5 class="card-title mb-0">Loaded Fries</h5>
+                                        </div>
+                                        <div class="menu-price text-end ms-2">
+                                            Rp 26.000
+                                        </div>
+                                    </div>
+                                    <p class="card-text flex-grow-1">Kentang goreng garing bertabur saus keju lezat dan
+                                        potongan daging cincang gurih.</p>
+                                    <div class="mt-auto pt-2">
+                                        <a href="login.html" class="btn btn-coffee w-100">
+                                            <i class="bi bi-bag-plus me-2"></i>Pesan Sekarang
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-5">
+                        <a href="user.html" class="btn btn-outline-coffee btn-lg px-5">
+                            Lihat Semua Menu <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- ================================================================
+                 ABOUT SECTION (home.blade.php)
+                 ================================================================ -->
+                <section id="tentang" class="about-section py-5" style="background:
+                    linear-gradient(90deg,
+                        rgba(0,0,0,0.90) 0%,
+                        rgba(0,0,0,0.70) 50%,
+                        rgba(0,0,0,0.40) 100%),
+                    url('../public/images/about-coffee.jpg') center / cover no-repeat;">
+                    <div class=" d-flex justify-content-center g-5" style="padding:50px 0 100px 0;">
+                        <div class=" mt-4 mt-lg-0" style="max-width:50%;text-align:center;">
+                            <span
+                                style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#ffffff;">
+                                Tentang Kami
+                            </span> <br>
+                            <div
+                                style="width:20%;height:3px;background:linear-gradient(90deg,#C08B5C,#D4A855);border-radius:99px;margin:0.75rem 0 1.25rem; margin:auto;">
+                            </div> <br>
+                            <h2 class="section-title text-start mt-2 mb-0" style="padding-bottom:0.5rem;color:#ffffff;">
+                                Cerita di Balik Setiap Cangkir
+                            </h2> <br>
+
+                            <p class=" my-3" style="color:#ffffff;text-align: justify;">
+                                Kopi Nusantara lahir dari kecintaan mendalam terhadap kopi Indonesia. Kami percaya bahwa
+                                Indonesia
+                                memiliki biji kopi terbaik di dunia — dari Gayo Aceh yang floral, Toraja Sulawesi yang
+                                earthy,
+                                hingga Flores yang bittersweet.
+                            </p>
+                            <p class=" mb-4" style="color:#ffffff;text-align: justify;">
+                                Setiap biji dipilih langsung dari petani lokal terpercaya, disangrai dengan presisi oleh
+                                roaster
+                                berpengalaman, dan disajikan oleh barista profesional yang mencintai pekerjaannya.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================================================================
+                 KEUNGGULAN SECTION (home.blade.php)
+                 ================================================================ -->
+                <section class="features-section py-5 mb-2 px-4 px-lg-5">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">Mengapa Kopi Nusantara?</h2>
+                        <p class="text-muted-custom mt-3">Lebih dari sekedar kopi — sebuah pengalaman</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4 fade-in-up delay-1">
+                            <div class="card h-100"
+                                style="border:1px solid #EDD9BC;background:linear-gradient(135deg,#FDF6ED 0%,#F5E8D4 100%);">
+                                <div class="card-body p-4">
+                                    <div style="font-size:2.25rem;margin-bottom:0.875rem;" class="icon-google">
+                                        <span class="material-symbols-outlined">psychiatry</span>
+                                    </div>
+                                    <h5 class="card-title mb-2">Biji Pilihan Petani Lokal</h5>
+                                    <p class="card-text" style="font-size:0.875rem;color:#6B4C3B;line-height:1.7;">
+                                        Kami berkolaborasi langsung dengan petani kopi dari Aceh, Toraja, Flores, dan
+                                        daerah lainnya untuk mendapatkan biji terbaik setiap musim panen.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 fade-in-up delay-2">
+                            <div class="card h-100"
+                                style="border:1px solid #EDD9BC;background:linear-gradient(135deg,#FDF6ED 0%,#F5E8D4 100%);">
+                                <div class="card-body p-4">
+                                    <div style="font-size:2.25rem;margin-bottom:0.875rem;" class="icon-google">
+                                        <span class="material-symbols-outlined">person_apron</span>
+                                    </div>
+                                    <h5 class="card-title mb-2">Barista Profesional</h5>
+                                    <p class="card-text" style="font-size:0.875rem;color:#6B4C3B;line-height:1.7;">
+                                        Tim barista kami bersertifikat internasional dengan pengalaman bertahun-tahun.
+                                        Setiap cangkir dibuat dengan teknik dan perhatian penuh.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 fade-in-up delay-3">
+                            <div class="card h-100"
+                                style="border:1px solid #EDD9BC;background:linear-gradient(135deg,#FDF6ED 0%,#F5E8D4 100%);">
+                                <div class="card-body p-4">
+                                    <div style="font-size:2.25rem;margin-bottom:0.875rem;" class="icon-google">
+                                        <span class="material-symbols-outlined">bolt</span>
+                                    </div>
+                                    <h5 class="card-title mb-2">Pesanan Cepat & Mudah</h5>
+                                    <p class="card-text" style="font-size:0.875rem;color:#6B4C3B;line-height:1.7;">
+                                        Pesan melalui platform kami, bayar dengan mudah, dan nikmati pesananmu. Proses
+                                        pembuatan dimonitor secara real-time.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 fade-in-up delay-4">
+                            <div class="card h-100"
+                                style="border:1px solid #EDD9BC;background:linear-gradient(135deg,#FDF6ED 0%,#F5E8D4 100%);">
+                                <div class="card-body p-4">
+                                    <div style="font-size:2.25rem;margin-bottom:0.875rem;" class="icon-google">
+                                        <span class="material-symbols-outlined">trophy</span>
+                                    </div>
+                                    <h5 class="card-title mb-2">Kualitas Terjamin</h5>
+                                    <p class="card-text" style="font-size:0.875rem;color:#6B4C3B;line-height:1.7;">
+                                        Seluruh menu melewati proses quality control yang ketat. Kepuasan Anda adalah
+                                        prioritas utama kami sejak hari pertama.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 fade-in-up delay-1">
+                            <div class="card h-100"
+                                style="border:1px solid #EDD9BC;background:linear-gradient(135deg,#FDF6ED 0%,#F5E8D4 100%);">
+                                <div class="card-body p-4">
+                                    <div style="font-size:2.25rem;margin-bottom:0.875rem;" class="icon-google">
+                                        <span class="material-symbols-outlined">aq_indoor</span>
+                                    </div>
+                                    <h5 class="card-title mb-2">Suasana Nyaman</h5>
+                                    <p class="card-text" style="font-size:0.875rem;color:#6B4C3B;line-height:1.7;">
+                                        Desain interior hangat dengan pencahayaan yang nyaman, cocok untuk bekerja,
+                                        bertemu teman, atau sekadar menikmati waktu sendiri.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 fade-in-up delay-2">
+                            <div class="card h-100"
+                                style="border:1px solid #EDD9BC;background:linear-gradient(135deg,#FDF6ED 0%,#F5E8D4 100%);">
+                                <div class="card-body p-4">
+                                    <div style="font-size:2.25rem;margin-bottom:0.875rem;" class="icon-google">
+                                        <span class="material-symbols-outlined">partner_heart</span>
+                                    </div>
+                                    <h5 class="card-title mb-2">Program Loyalitas</h5>
+                                    <p class="card-text" style="font-size:0.875rem;color:#6B4C3B;line-height:1.7;">
+                                        Dapatkan poin setiap pembelian dan tukarkan dengan minuman gratis, diskon
+                                        spesial, dan berbagai hadiah menarik lainnya.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================================================================
+                 TESTIMONIALS SECTION (home.blade.php)
+                 ================================================================ -->
+                <section class="testimonials-section py-5 mb-2 mx-4 mx-lg-5"
+                    style="background:linear-gradient(135deg,#3E1F0D 0%,#6B3A2A 100%);border-radius:1.5rem;padding-left:2rem;padding-right:2rem;">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title" style="color:#FDF6ED;">Yang Mereka Katakan</h2>
+                        <p style="color:#C8A882;margin-top:0.75rem;">Ulasan nyata dari pelanggan setia kami</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div
+                                style="background:rgba(253,246,237,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:1rem;padding:1.75rem;height:100%;backdrop-filter:blur(10px);">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div
+                                        style="width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#C08B5C,#D4A855);display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:#3E1F0D;flex-shrink:0;">
+                                        R
+                                    </div>
+                                    <div>
+                                        <div style="font-weight:700;color:#FDF6ED;font-size:0.9rem;">Amelia Frizky</div>
+                                        <div style="font-size:0.75rem;color:#C08B5C;">Siswi SMKN 21 Jakarta</div>
+                                    </div>
+                                    <div class="ms-auto" style="font-size:0.85rem;color:#D4A855;letter-spacing:1px;">
+                                        ⭐⭐⭐⭐⭐
+                                    </div>
+                                </div>
+                                <p
+                                    style="color:#EDD9BC;font-size:0.875rem;line-height:1.75;font-style:italic;margin:0;">
+                                    "Cappuccino di sini beneran beda! Foam-nya lembut, rasanya pas banget antara pahit
+                                    dan manisnya. Jadi langganan rutin sebelum kuliah."
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div
+                                style="background:rgba(253,246,237,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:1rem;padding:1.75rem;height:100%;backdrop-filter:blur(10px);">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div
+                                        style="width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#C08B5C,#D4A855);display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:#3E1F0D;flex-shrink:0;">
+                                        B
+                                    </div>
+                                    <div>
+                                        <div style="font-weight:700;color:#FDF6ED;font-size:0.9rem;">Fadhil Danendra
+                                        </div>
+                                        <div style="font-size:0.75rem;color:#C08B5C;">Siswi SMKN 21 Jakarta</div>
+                                    </div>
+                                    <div class="ms-auto" style="font-size:0.85rem;color:#D4A855;letter-spacing:1px;">
+                                        ⭐⭐⭐⭐⭐
+                                    </div>
+                                </div>
+                                <p
+                                    style="color:#EDD9BC;font-size:0.875rem;line-height:1.75;font-style:italic;margin:0;">
+                                    "Tempatnya cozy banget buat kerja. WiFi kencang, kopi enak, dan staff-nya ramah.
+                                    Caramel Macchiato-nya jadi andalan saya setiap hari!"
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div
+                                style="background:rgba(253,246,237,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:1rem;padding:1.75rem;height:100%;backdrop-filter:blur(10px);">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div
+                                        style="width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#C08B5C,#D4A855);display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:#3E1F0D;flex-shrink:0;">
+                                        D
+                                    </div>
+                                    <div>
+                                        <div style="font-weight:700;color:#FDF6ED;font-size:0.9rem;">Nabila Avisa</div>
+                                        <div style="font-size:0.75rem;color:#C08B5C;">Siswi SMKN 21 Jakarta</div>
+                                    </div>
+                                    <div class="ms-auto" style="font-size:0.85rem;color:#D4A855;letter-spacing:1px;">
+                                        ⭐⭐⭐⭐⭐
+                                    </div>
+                                </div>
+                                <p
+                                    style="color:#EDD9BC;font-size:0.875rem;line-height:1.75;font-style:italic;margin:0;">
+                                    "Matcha Latte di sini mengalahkan banyak coffee shop lain yang pernah saya coba.
+                                    Worth it banget! Pasti balik lagi bawa teman-teman."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================================================================
+                 CTA SECTION (home.blade.php)
+                 ================================================================ -->
+                <section class="cta-section py-5 text-center">
+                    <div style="max-width:560px;margin:auto;">
+                        <div style="font-size:3rem;margin-bottom:0.75rem;">
+                            <img src="../public/coffee-cup-svgrepo-com.svg" alt="" width="60" height="60"
+                                class="brand-logo">
+                        </div>
+                        <h2
+                            style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;color:#3E1F0D;margin-bottom:0.75rem;">
+                            Siap Memesan?
+                        </h2>
+                        <p style="color:#6B4C3B;margin-bottom:2rem;font-size:1rem;">
+                            Buat akun sekarang dan nikmati pengalaman memesan kopi premium yang mudah, cepat, dan
+                            menyenangkan.
+                        </p>
+                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                            <a href="register.html" class="btn btn-coffee btn-lg px-5">
+                                <i class="bi bi-person-plus me-2"></i>Daftar Sekarang
+                            </a>
+                            <a href="login.html" class="btn btn-outline-coffee btn-lg px-5">
+                                Sudah Punya Akun? Masuk
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- ================================================================
+     FOOTER (partials/footer.blade.php)
+     ================================================================ -->
+    <footer class="footer mt-auto">
+        <div class="container-fluid px-4 px-lg-5">
+            <div class="row g-4">
+                {{-- Brand Column --}}
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <img src="../public/coffee-cup-svgrepo-com.svg" alt="" width="28" height="28"
+                            class="brand-logo">
+                        Kopi Nusantara
+                    </div>
+                    <p class="footer-tagline">Dari biji pilihan, untuk secangkir cerita</p>
+                    <p style="font-size:0.875rem;color:#C8A882;line-height:1.7;max-width:300px;text-align: justify;">
+                        Kopi Nusantara hadir menghadirkan pengalaman menikmati kopi premium Indonesia yang autentik,
+                        disiapkan dengan penuh dedikasi oleh barista berpengalaman kami.
+                    </p>
+                    <div class="footer-social mt-3">
+                        <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" title="Twitter/X"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                {{-- Menu Column --}}
+                <div class="col-lg-2 col-md-4">
+                    <h6>Menu Cepat</h6>
+                    <a href="index.html">Beranda</a>
+                    <a href="#menu-section">Menu Kami</a>
+                    <a href="#tentang">Tentang Kami</a>
+                    <a href="login.html">Login</a>
+                    <a href="register.html">Daftar</a>
+                </div>
+
+                {{-- Info Column --}}
+                <div class="col-lg-3 col-md-4">
+                    <h6>Jam Operasional</h6>
+                    <div style="font-size:0.875rem;color:#C8A882;line-height:2;">
+                        <div class="d-flex justify-content-between">
+                            <span>Senin – Jumat</span>
+                            <span style="color:#FDF6ED;font-weight:600;">07.00 – 22.00</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Sabtu</span>
+                            <span style="color:#FDF6ED;font-weight:600;">08.00 – 23.00</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Minggu</span>
+                            <span style="color:#FDF6ED;font-weight:600;">09.00 – 21.00</span>
+                        </div>
+                    </div>
+                    <div class="mt-3" style="font-size:0.875rem;color:#C8A882;">
+                        <div><i class="bi bi-geo-alt me-2" style="color:#D4A855;"></i>Jl. Kebon Kosong No. 17, Jakarta
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Contact Column --}}
+                <div class="col-lg-3 col-md-4">
+                    <h6>Hubungi Kami</h6>
+                    <div style="font-size:0.875rem;color:#C8A882;line-height:2.2;">
+                        <div><i class="bi bi-telephone me-2" style="color:#D4A855;"></i>+62 812-3456-7890</div>
+                        <div><i class="bi bi-envelope me-2" style="color:#D4A855;"></i>hello@kopinusantara.id</div>
+                        <div><i class="bi bi-whatsapp me-2" style="color:#D4A855;"></i>+62 812-3456-7890</div>
+                    </div>
+                    <div class="mt-3 p-3"
+                        style="background:rgba(255,255,255,0.05);border-radius:0.5rem;border:1px solid rgba(255,255,255,0.08);">
+                        <div
+                            style="font-size:0.75rem;color:#D4A855;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:0.25rem;">
+                            Rating Pelanggan</div>
+                        <div style="color:#FDF6ED;font-size:1.1rem;font-weight:700;">⭐ 4.9 / 5.0</div>
+                        <div style="font-size:0.75rem;color:#C8A882;">dari 1.200+ ulasan</div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="d-flex flex-wrap justify-content-between align-items-center footer-bottom">
+                <span>&copy; 2026 Kopi Nusantara. Seluruh hak cipta dilindungi.</span>
+                <span>Dibuat dengan ❤️ untuk para pecinta kopi Indonesia</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- GSAP for Smooth Reveal Animation (home.blade.php) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+            const mm = gsap.matchMedia();
+
+            mm.add('(prefers-reduced-motion: no-preference)', () => {
+                const reveal = (selector, { y = 70, rowDelay = 0.12 } = {}) => {
+                    const els = gsap.utils.toArray(selector);
+                    if (!els.length) return;
+
+                    const rows = {};
+                    els.forEach((el) => {
+                        const top = Math.round(el.getBoundingClientRect().top + window.scrollY);
+                        (rows[top] = rows[top] || []).push(el);
+                    });
+                    const delays = new Map();
+                    Object.values(rows).forEach((row) =>
+                        row.forEach((el, i) => delays.set(el, i * rowDelay))
+                    );
+
+                    els.forEach((el) => {
+                        gsap.fromTo(el, { y, opacity: 0 }, {
+                            y: 0,
+                            opacity: 1,
+                            duration: 0.9,
+                            ease: 'power3.out',
+                            delay: delays.get(el),
+                            clearProps: 'transform,opacity',
+                            scrollTrigger: {
+                                trigger: el,
+                                start: 'top 90%',
+                                once: true
+                            }
+                        });
+                    });
+                };
+
+                reveal('.categories-section > .text-center');
+                reveal('.categories-section .row > div');
+                reveal('.menus-section > .text-center.mb-5');
+                reveal('.menus-section .row > div');
+                reveal('.menus-section > .text-center.mt-5');
+                reveal('.about-section .d-flex > div');
+                reveal('.features-section > .text-center');
+                reveal('.features-section .row > div');
+                reveal('.testimonials-section > .text-center');
+                reveal('.testimonials-section .row > div');
+                reveal('.cta-section > div');
+
+                window.addEventListener('load', () => ScrollTrigger.refresh());
+            });
+        });
+    </script>
+</body>
+
+</html>

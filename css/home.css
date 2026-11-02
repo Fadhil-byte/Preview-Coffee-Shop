@@ -1,0 +1,498 @@
+/* ========================================================
+   HOME PAGE STYLES — KOPI NUSANTARA PREVIEW
+   ======================================================== */
+
+/* Hero Section */
+.hero-wrapper {
+    position: relative;
+    background: linear-gradient(105deg, rgba(30, 14, 6, 0.94) 0%, rgba(46, 24, 12, 0.88) 50%, rgba(30, 14, 6, 0.65) 100%),
+                url('../../public/images/hero-bg.jpg') center center / cover no-repeat;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding: 5rem 0;
+    color: #FFFFFF;
+    overflow: hidden;
+}
+
+.hero-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 80% 30%, rgba(212, 168, 85, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(212, 168, 85, 0.2);
+    border: 1px solid rgba(212, 168, 85, 0.5);
+    color: var(--color-gold);
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.45rem 1rem;
+    border-radius: var(--radius-pill);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(4px);
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #FFFFFF;
+    margin-bottom: 1.5rem;
+}
+
+.hero-title .accent-text {
+    background: linear-gradient(90deg, #D4A855 0%, #F5E8D4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-style: italic;
+}
+
+.hero-description {
+    font-size: 1.05rem;
+    color: #E2CEB8;
+    line-height: 1.8;
+    max-width: 540px;
+    margin-bottom: 2.25rem;
+}
+
+.hero-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.hero-stats-row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(222, 201, 170, 0.25);
+}
+
+.hero-stat-item .stat-num {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.hero-stat-item .stat-num .star-icon {
+    color: #FFC107;
+    font-size: 1.5rem;
+}
+
+.hero-stat-item .stat-label {
+    font-size: 0.8rem;
+    color: #C8A882;
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+.hero-stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(222, 201, 170, 0.25);
+}
+
+/* Floating Coffee Showcase card */
+.hero-floating-card {
+    background: rgba(44, 24, 16, 0.75);
+    border: 1px solid rgba(212, 168, 85, 0.3);
+    backdrop-filter: blur(12px);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.hero-preview-img-box {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    height: 320px;
+}
+
+.hero-preview-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.hero-preview-img-box:hover img {
+    transform: scale(1.05);
+}
+
+.hero-floating-pill {
+    position: absolute;
+    background: rgba(253, 246, 237, 0.95);
+    color: #2C1810;
+    border-radius: var(--radius-pill);
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    box-shadow: var(--shadow-md);
+    font-size: 0.82rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.hero-floating-pill.pill-top {
+    top: -15px;
+    right: -10px;
+}
+
+.hero-floating-pill.pill-bottom {
+    bottom: -15px;
+    left: -10px;
+}
+
+.pill-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: var(--color-primary);
+}
+
+/* ========================================================
+   CATEGORIES SECTION
+   ======================================================== */
+.category-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    color: var(--color-primary);
+}
+
+.category-card:hover {
+    background: #EEDCC3;
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-accent);
+}
+
+.category-icon-box {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    margin-bottom: 0.85rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.category-card:hover .category-icon-box {
+    background: var(--color-primary);
+    color: var(--color-gold);
+    transform: rotate(8deg);
+}
+
+.category-title {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.category-count {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+}
+
+/* ========================================================
+   POPULAR MENU CARDS
+   ======================================================== */
+.menu-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border-light);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.menu-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
+}
+
+.menu-img-wrap {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background: #EADBC8;
+}
+
+.menu-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.menu-card:hover .menu-img-wrap img {
+    transform: scale(1.08);
+}
+
+.menu-badge-cat {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(44, 24, 16, 0.85);
+    color: #FDF6ED;
+    backdrop-filter: blur(4px);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-pill);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.menu-badge-stock {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: #DC3545;
+    color: #FFFFFF;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.4);
+}
+
+.menu-body {
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.menu-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.65rem;
+}
+
+.menu-name {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0;
+}
+
+.menu-price {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-secondary);
+    white-space: nowrap;
+}
+
+.menu-desc {
+    color: var(--color-text-muted);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+}
+
+/* ========================================================
+   ABOUT SECTION
+   ======================================================== */
+.about-section {
+    position: relative;
+    background: linear-gradient(135deg, rgba(35, 18, 9, 0.94) 0%, rgba(55, 28, 14, 0.90) 100%),
+                url('../../public/images/about-coffee.jpg') center center / cover fixed;
+    color: #FDF6ED;
+    padding: 6rem 0;
+}
+
+.about-frame {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    border: 3px solid var(--color-border);
+}
+
+.about-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.about-feature-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(212, 168, 85, 0.2);
+    color: var(--color-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+/* ========================================================
+   WHY US / VALUE PROPOSITION
+   ======================================================== */
+.value-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 2.25rem 1.75rem;
+    border: 1px solid var(--color-border-light);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    text-align: center;
+    height: 100%;
+}
+
+.value-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
+}
+
+.value-icon-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--color-surface);
+    color: var(--color-secondary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 1.25rem;
+    transition: var(--transition);
+}
+
+.value-card:hover .value-icon-circle {
+    background: var(--color-primary);
+    color: var(--color-gold);
+    transform: scale(1.1);
+}
+
+.value-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    margin-bottom: 0.65rem;
+}
+
+.value-desc {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ========================================================
+   TESTIMONIALS
+   ======================================================== */
+.testimonial-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    border: 1px solid var(--color-border-light);
+    box-shadow: var(--shadow-sm);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.testi-stars {
+    color: #FFC107;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.testi-quote {
+    font-style: italic;
+    color: var(--color-text);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+.testi-author {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.testi-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-surface);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.testi-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin: 0;
+    color: var(--color-primary);
+}
+
+.testi-role {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
