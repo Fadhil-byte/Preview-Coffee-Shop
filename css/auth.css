@@ -12,7 +12,7 @@
 .auth-visual-panel {
     flex: 0 0 46%;
     background: linear-gradient(150deg, #251206 0%, #3E1F0D 50%, #6B3A2A 100%),
-                url('../../public/images/hero-bg.jpg') center center / cover no-repeat;
+                url('.././public/images/hero-bg.jpg') center center / cover no-repeat;
     background-blend-mode: overlay;
     color: #FFFFFF;
     padding: 3.5rem 3rem;

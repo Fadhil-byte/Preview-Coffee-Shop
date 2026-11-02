@@ -6,7 +6,7 @@
 .hero-wrapper {
     position: relative;
     background: linear-gradient(105deg, rgba(30, 14, 6, 0.94) 0%, rgba(46, 24, 12, 0.88) 50%, rgba(30, 14, 6, 0.65) 100%),
-                url('../../public/images/hero-bg.jpg') center center / cover no-repeat;
+                url('.././public/images/hero-bg.jpg') center center / cover no-repeat;
     min-height: 85vh;
     display: flex;
     align-items: center;
@@ -343,7 +343,7 @@
 .about-section {
     position: relative;
     background: linear-gradient(135deg, rgba(35, 18, 9, 0.94) 0%, rgba(55, 28, 14, 0.90) 100%),
-                url('../../public/images/about-coffee.jpg') center center / cover fixed;
+                url('.././public/images/about-coffee.jpg') center center / cover fixed;
     color: #FDF6ED;
     padding: 6rem 0;
 }

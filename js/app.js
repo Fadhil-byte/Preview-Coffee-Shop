@@ -9,8 +9,8 @@ const CART_STORAGE_KEY = 'kopi_nusantara_preview_cart';
 
 // Default initial items if not set
 const DEFAULT_CART = [
-    { id: 1, name: 'Americano', price: 25000, qty: 1, image: '../public/images/Americano.jpg', category: 'Coffee' },
-    { id: 7, name: 'Butter Croissant', price: 24000, qty: 2, image: '../public/images/Butter Croissant.jpg', category: 'Pastry' }
+    { id: 1, name: 'Americano', price: 25000, qty: 1, image: './public/images/Americano.jpg', category: 'Coffee' },
+    { id: 7, name: 'Butter Croissant', price: 24000, qty: 2, image: './public/images/Butter Croissant.jpg', category: 'Pastry' }
 ];
 
 function getCartItems() {
@@ -57,7 +57,7 @@ function addToCart(menu) {
             name: menu.name,
             price: Number(menu.price),
             qty: 1,
-            image: menu.image || '../public/images/Americano.jpg',
+            image: menu.image || './public/images/Americano.jpg',
             category: menu.category || 'Menu'
         });
     }
